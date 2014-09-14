@@ -1,6 +1,6 @@
 # mnml Boilerplate 2
   
-  Personal boilerplate to get stuff ready for running, building scripts by `browerify`, building css by `myth`
+  Personal boilerplate to get stuff ready for running, building scripts by `browserify`, and css by `myth`
 
 ## Installation
 

@@ -1,7 +1,7 @@
 {
   "name": "boilerplate2",
   "version": "0.0.1",
-  "description": "Personal boilerplate to get stuff ready for running, building scripts by `browerify`, building css by `myth`",
+  "description": "Personal boilerplate to get stuff ready for running, building scripts by `browserify`, building css by `myth`",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
