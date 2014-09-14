@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+
+var build = require('boilerplate-build');
+var config = require(process.cwd() + '/config');
+
+config.debug = false;
+config.preview = {};
+
+build.script(config, function(e) {
+  if (e) throw e;
+  console.log('script is built successfully at ' + config.out + '.js');
+});
+
+build.style(config, function(e) {
+  if (e) throw e;
+  console.log('style is built successfully at ' + config.out + '.css');
+});

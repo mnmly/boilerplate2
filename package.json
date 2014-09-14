@@ -1,0 +1,19 @@
+{
+  "name": "boilerplate2",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "browser": "./lib/boot/index.js",
+  "style": "./lib/boot/boot.css",
+  "author": "Hiroaki Yamane",
+  "license": "MIT",
+  "dependencies": {
+    "browser-sync": "~1.3.7",
+    "instant-preview-server": "git://github.com/mnmly/instant-preview-server",
+    "boilerplate-build": "git://github.com/mnmly/boilerplate-build",
+    "debounce": "git://github.com/component/debounce"
+  }
+}

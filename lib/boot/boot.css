@@ -1,0 +1,15 @@
+@import 'lib/something/something.css';
+
+body {
+  font-family: 'Avenir Next', Helvetica;
+  text-align: center;
+  background-color: var(--primary-color);
+}
+
+h1 {
+  position: absolute;
+  font-weight: 100;
+  width: 100%;
+  top: 50%;
+  transform: translate3d(0, -50%, 0);
+}
