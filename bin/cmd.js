@@ -19,7 +19,7 @@ program
   .option('-r, --requires <module>', 'name of module [boot]', 'boot')
   .option('-b, --base-dir <basedir>', 'base directory where pakage.json lives')
   .option('--paths <paths>', 'paths for modules', list)
-  .option('--no-require', 'name of module [false]', false)
+  .option('-u, --unexposed', 'name of module')
   .parse(process.argv);
 
 var baseDir = program.baseDir ? program.baseDir : process.cwd();
@@ -36,7 +36,7 @@ var buildConfig = {
   baseDir: baseDir
 };
 
-if (program.noRequire) {
+if (program.unexposed) {
   delete buildConfig.requires;
 }
 
@@ -48,7 +48,7 @@ var param = {
 };
 
 if (program.proxy) {
-  param.proxy = proxy.proxy;
+  param.proxy = program.proxy;
 } else {
   param.server = { baseDir: process.cwd() };
 }
