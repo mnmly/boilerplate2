@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 
+var options = require('./cmd');
 var build = require('boilerplate-build');
-var config = require(process.cwd() + '/config');
 
-config.debug = false;
-config.preview = {};
+var config = options.config;
 
 build.script(config, function(e) {
   if (e) throw e;

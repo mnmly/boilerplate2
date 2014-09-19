@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+
+var options = require('./cmd');
+var server = require('./../server');
+
+// console.log(param, buildConfig)
+server(options.param, options.config);
+// build.script(buildConfig, function() { console.log(arguments); })
+// build.style(buildConfig, function() { console.log(arguments); })

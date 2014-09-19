@@ -1,6 +1,6 @@
 {
   "name": "boilerplate2",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Personal boilerplate to get stuff ready for running, building scripts by `browserify`, building css by `myth`",
   "main": "server.js",
   "scripts": {
@@ -13,7 +13,8 @@
   "dependencies": {
     "browser-sync": "~1.3.7",
     "instant-preview-server": "git://github.com/mnmly/instant-preview-server",
-    "boilerplate-build": "git://github.com/mnmly/boilerplate-build",
-    "debounce": "git://github.com/component/debounce"
+    "boilerplate-build": "git://github.com/mnmly/boilerplate-build#0.0.3",
+    "debounce": "git://github.com/component/debounce",
+    "commander": "~2.3.0"
   }
 }

@@ -9,52 +9,68 @@ var build = require('boilerplate-build');
 var Preview = require('instant-preview-server');
 var debounce = require('debounce');
 var browserSync = require('browser-sync');
-var config = require('./config');
 var notifyTimeout = 5000;
 
-var param = {
-  server: { baseDir: "./" },
-  port: port,
-  open: false,
-  logLevel: 'silent'
-};
+module.exports = run;
 
-browserSync(param, function() {
+function run(param, _config) {
 
-  var preview = new Preview();
+  var config = _config;
 
-  preview.listen();
+  if (config.out.lastIndexOf('/') !== config.out.length) {
+    config.out += '/';
+  }
 
-  preview.on('preview', debounce(onpreview, 200));
+  browserSync(param, function() {
 
-  function onpreview(o) {
+    console.log('Running on port ' + param.port);
 
-    if (!/\.(js|css|html)/.test(o.filename)) return;
+    var preview = new Preview();
+    preview.listen();
+    preview.on('preview', onpreview);
 
-    config.preview = o;
+    function onpreview(o) {
 
-    if (/\.js$/.test(o.filename)) {
-      build.script(config, function(e) {
-        if (e) {
-          browserSync.notify(parse(e.message, 'js'), notifyTimeout);
-        } else {
-          browserSync.reload([config.out + '.js']);
-        }
-      });
-    } else if (/\.css$/.test(o.filename)){
-      build.style(config, function(e) {
-        if (e) {
-          browserSync.notify(parse(e.message, 'css'), notifyTimeout);
-        } else {
-          browserSync.reload([config.out + '.css']);
-        }
-      });
-    } else {
-      browserSync.reload();
+      if (!/\.(js|css|html)/.test(o.filename)) return;
+
+      config.preview = o;
+
+      if (/\.js$/.test(o.filename)) {
+        build.script(config, function(e) {
+          if (e) {
+            browserSync.notify(parse(e.message, 'js'), notifyTimeout);
+          } else {
+            browserSync.reload([config.out + config.name + '.js']);
+          }
+        });
+      } else if (/\.css$/.test(o.filename)){
+
+        if (!config.style) return;
+
+        build.style(config, function(e) {
+          if (e) {
+            browserSync.notify(parse(e.message, 'css'), notifyTimeout);
+          } else {
+            browserSync.reload([config.out + config.name + '.css']);
+          }
+        });
+      } else {
+        browserSync.reload();
+      }
     }
-  }
 
-  function parse(message, type) {
-    return type + '-' + message.replace(__dirname, '');
-  }
-});
+    function parse(message, type) {
+      return type + '-' + message.replace(__dirname, '');
+    }
+  });
+}
+
+if (!module.parent) {
+  var param = {
+    server: { baseDir: "./" },
+    port: port,
+    open: false,
+    logLevel: 'silent'
+  };
+  run(param);
+}
