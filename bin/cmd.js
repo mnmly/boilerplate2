@@ -19,6 +19,7 @@ program
   .option('-r, --requires <module>', 'name of module [boot]', 'boot')
   .option('-b, --base-dir <basedir>', 'base directory where pakage.json lives')
   .option('--paths <paths>', 'paths for modules', list)
+  .option('--files <files>', 'additional files to look out for', list)
   .option('--no-require', 'name of module [false]', false)
   .parse(process.argv);
 
@@ -45,6 +46,7 @@ var param = {
   port: program.port,
   logLevel: 'silent',
   open: false,
+  files: files
 };
 
 if (program.proxy) {

@@ -1,6 +1,6 @@
 {
   "name": "boilerplate2",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Personal boilerplate to get stuff ready for running, building scripts by `browserify`, building css by `myth`",
   "main": "server.js",
   "scripts": {
@@ -11,7 +11,7 @@
   "author": "Hiroaki Yamane",
   "license": "MIT",
   "dependencies": {
-    "browser-sync": "~1.3.7",
+    "browser-sync": "~1.5.1",
     "instant-preview-server": "git://github.com/mnmly/instant-preview-server",
     "boilerplate-build": "git://github.com/mnmly/boilerplate-build#0.0.3",
     "debounce": "git://github.com/component/debounce",

@@ -27,7 +27,7 @@ function run(param, _config) {
 
     var preview = new Preview();
     preview.listen();
-    preview.on('preview', onpreview);
+    preview.on('preview', debounce(onpreview, 200));
 
     function onpreview(o) {
 
