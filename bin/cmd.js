@@ -32,7 +32,7 @@ var buildConfig = {
   out: program.out,
   name: program.name,
   entry: program.entry || package.main,
-  style: program.styleEntry,
+  style: program.styleEntry || package.style,
   requires: program.requires,
   paths: program.paths && program.paths.map(function(v) { return resolve(baseDir, v );} ),
   baseDir: baseDir
