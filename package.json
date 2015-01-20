@@ -1,6 +1,6 @@
 {
   "name": "boilerplate2",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Personal boilerplate to get stuff ready for running, building scripts by `browserify`, building css by `myth`",
   "main": "server.js",
   "scripts": {
