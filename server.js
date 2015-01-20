@@ -31,7 +31,7 @@ function run(param, _config) {
 
     function onpreview(o) {
 
-      if (!/\.(js|css|html)/.test(o.filename)) return;
+      if (!/\.(js|css|html|vert|frag)/.test(o.filename)) return;
 
       config.preview = o;
 
@@ -43,6 +43,9 @@ function run(param, _config) {
             browserSync.reload([config.out + config.name + '.js']);
           }
         });
+      } else if (/\.frag|\.vert/.test(o.filename)){
+        var ext = path.extname(o.filename).replace(/\./, '');
+        browserSync.notify({shaderType: ext, filename: o.filename, content: o.content});
       } else if (/\.css$/.test(o.filename)){
 
         if (!config.style) return;
