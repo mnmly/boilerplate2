@@ -18,6 +18,7 @@ program
   .option('-n, --name <name>', 'name of output file [build]', 'build')
   .option('-r, --requires <module>', 'name of module [boot]', 'boot')
   .option('-b, --base-dir <basedir>', 'base directory where pakage.json lives')
+  .option('-t, --transforms <transforms>', 'additional transforms', list)
   .option('--paths <paths>', 'paths for modules', list)
   .option('--files <files>', 'additional files to look out for', list)
   .option('--no-require', 'name of module [false]', false)
@@ -35,6 +36,7 @@ var buildConfig = {
   style: program.styleEntry || package.style,
   requires: program.requires,
   paths: program.paths && program.paths.map(function(v) { return resolve(baseDir, v );} ),
+  transforms: program.transforms,
   baseDir: baseDir
 };
 
