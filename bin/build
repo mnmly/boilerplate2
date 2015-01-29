@@ -10,7 +10,9 @@ build.script(config, function(e) {
   console.log('script is built successfully at ' + config.out + '.js');
 });
 
-build.style(config, function(e) {
-  if (e) throw e;
-  console.log('style is built successfully at ' + config.out + '.css');
-});
+if (config.style) {
+  build.style(config, function(e) {
+    if (e) throw e;
+    console.log('style is built successfully at ' + config.out + '.css');
+  });
+}
