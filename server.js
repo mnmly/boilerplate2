@@ -45,7 +45,9 @@ function run(param, _config) {
         });
       } else if (/\.frag|\.vert/.test(o.filename)){
         var ext = path.extname(o.filename).replace(/\./, '');
-        browserSync.notify({shaderType: ext, filename: o.filename, content: o.content});
+        build.glsl(config, function(e, content) {
+          browserSync.notify({shaderType: ext, filename: o.filename, content: content});
+        });
       } else if (/\.css$/.test(o.filename)){
 
         if (!config.style) return;
