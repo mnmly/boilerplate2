@@ -23,6 +23,7 @@ program
   .option('--files <files>', 'additional files to look out for', list)
   .option('--no-require', 'name of module [false]', false)
   .option('-u, --unexposed', 'name of module')
+  .option('--standalone <standalone>', 'name of standalone', null)
   .parse(process.argv);
 
 var baseDir = program.baseDir ? program.baseDir : process.cwd();
@@ -37,7 +38,8 @@ var buildConfig = {
   requires: program.requires,
   paths: program.paths && program.paths.map(function(v) { return resolve(baseDir, v );} ),
   transforms: program.transforms,
-  baseDir: baseDir
+  baseDir: baseDir,
+  standalone: program.standalone
 };
 
 if (program.unexposed) {
