@@ -11,7 +11,7 @@
   "author": "Hiroaki Yamane",
   "license": "MIT",
   "dependencies": {
-    "browser-sync": "~1.5.1",
+    "browser-sync": "~2.0.1",
     "instant-preview-server": "git://github.com/mnmly/instant-preview-server",
     "boilerplate-build": "git://github.com/mnmly/boilerplate-build#0.0.9",
     "debounce": "git://github.com/component/debounce",
