@@ -51,7 +51,7 @@ var param = {
   port: program.port,
   logLevel: 'silent',
   open: false,
-  files: program.files
+  files: program.files || []
 };
 
 if (program.proxy) {
